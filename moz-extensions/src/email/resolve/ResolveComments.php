@@ -180,7 +180,7 @@ class ResolveComments {
 
   private static function createMarkupEngine($mode) {
     return PhabricatorMarkupEngine::newMarkupEngine(array())
-      ->setConfig('viewer', PhabricatorUser::getOmnipotentUser())
+      ->setConfig('viewer', PhabricatorUser::getUser())
       ->setConfig('uri.base', PhabricatorEnv::getProductionURI('/'))
       ->setConfig('uri.full', true)
       ->setMode($mode);
