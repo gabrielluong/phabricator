@@ -13,16 +13,21 @@ final class PhabricatorPDFDocumentEngine
     return 'fa-file-pdf-o';
   }
 
-  protected function canRenderDocumentType(PhabricatorDocumentRef $ref) {
-    // Since we just render a link to the document anyway, we don't need to
-    // check anything fancy in config to see if the MIME type is actually
-    // viewable.
+  /* MOZILLA: Instead of always allowing PDFs to be viewable in the web UI,
+     we use the base canRenderDocumentType() from PhabricatorDocumentEngine.
+     This checks that the PDF mimetype is viewable according to the system
+     configuration. */
+  
+  // protected function canRenderDocumentType(PhabricatorDocumentRef $ref) {
+  //   // Since we just render a link to the document anyway, we don't need to
+  //   // check anything fancy in config to see if the MIME type is actually
+  //   // viewable.
 
-    return $ref->hasAnyMimeType(
-      array(
-        'application/pdf',
-      ));
-  }
+  //   return $ref->hasAnyMimeType(
+  //     array(
+  //       'application/pdf',
+  //     ));
+  // }
 
   protected function newDocumentContent(PhabricatorDocumentRef $ref) {
     $viewer = $this->getViewer();

@@ -34,19 +34,23 @@ final class PhabricatorFilesConfigOptions
       'image/x-icon'              => 'image/x-icon',
       'image/vnd.microsoft.icon'  => 'image/x-icon',
 
+      // Commented out the below mimetypes for security/privacy concerns.
+      // It just means these will need to be downloaded instead of viewable
+      // in the page.
+      
       // This is a generic type for both OGG video and OGG audio.
-      'application/ogg' => 'application/ogg',
+      // 'application/ogg' => 'application/ogg',
 
-      'audio/x-wav' => 'audio/x-wav',
-      'audio/mpeg' => 'audio/mpeg',
-      'audio/ogg' => 'audio/ogg',
+      // 'audio/x-wav' => 'audio/x-wav',
+      // 'audio/mpeg' => 'audio/mpeg',
+      // 'audio/ogg' => 'audio/ogg',
 
-      'video/mp4' => 'video/mp4',
-      'video/ogg' => 'video/ogg',
-      'video/webm' => 'video/webm',
-      'video/quicktime' => 'video/quicktime',
+      // 'video/mp4' => 'video/mp4',
+      // 'video/ogg' => 'video/ogg',
+      // 'video/webm' => 'video/webm',
+      // 'video/quicktime' => 'video/quicktime',
 
-      'application/pdf' => 'application/pdf',
+      // 'application/pdf' => 'application/pdf',
     );
 
     $image_default = array(

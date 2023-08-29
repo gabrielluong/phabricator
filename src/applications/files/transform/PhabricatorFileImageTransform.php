@@ -144,6 +144,7 @@ abstract class PhabricatorFileImageTransform extends PhabricatorFileTransform {
     $defaults = array(
       'canCDN' => true,
       'name' => $this->getTransformKey().'-'.$name,
+      'viewPolicy' => $this->file->getViewPolicy(),
     );
 
     $properties = $this->getFileProperties() + $defaults;

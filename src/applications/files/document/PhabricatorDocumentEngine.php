@@ -30,6 +30,12 @@ abstract class PhabricatorDocumentEngine
   final public function canRenderDocument(PhabricatorDocumentRef $ref) {
     return $this->canRenderDocumentType($ref);
   }
+ 
+  protected function canRenderDocumentType(PhabricatorDocumentRef $ref) {
+    $viewable_types = PhabricatorEnv::getEnvConfig('files.viewable-mime-types');
+    $viewable_types = array_keys($viewable_types);
+    return $ref->hasAnyMimeType($viewable_types);
+  }
 
   public function canDiffDocuments(
     PhabricatorDocumentRef $uref = null,
@@ -113,9 +119,6 @@ abstract class PhabricatorDocumentEngine
   public function shouldRenderAsync(PhabricatorDocumentRef $ref) {
     return false;
   }
-
-  abstract protected function canRenderDocumentType(
-    PhabricatorDocumentRef $ref);
 
   final public function newDocument(PhabricatorDocumentRef $ref) {
     $can_complete = $this->canRenderCompleteDocument($ref);

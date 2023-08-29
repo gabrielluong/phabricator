@@ -181,10 +181,6 @@ final class PhabricatorFileQuery
     foreach ($files as $file) {
       $always_visible = false;
 
-      if ($file->getIsProfileImage()) {
-        $always_visible = true;
-      }
-
       if ($file->isBuiltin()) {
         $always_visible = true;
       }
